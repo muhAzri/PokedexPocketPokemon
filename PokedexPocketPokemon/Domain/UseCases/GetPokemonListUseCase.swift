@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RxSwift
+internal import RxSwift
 
 public protocol GetPokemonListUseCaseProtocol {
     func execute(offset: Int, limit: Int) -> Observable<PokemonList>
