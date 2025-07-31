@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import PokedexPocketCore
 
-public struct PokemonDetail: Identifiable, Equatable {
+public struct PokemonDetail: Identifiable, Equatable, FavoritePokemonProtocol {
     public let id: Int
     public let name: String
     public let height: Int
@@ -29,6 +30,11 @@ public struct PokemonDetail: Identifiable, Equatable {
 
     public var pokemonNumber: String {
         String(format: "#%03d", id)
+    }
+    
+    // MARK: - FavoritePokemonProtocol conformance
+    public var primaryType: String {
+        types.first?.name ?? "Unknown"
     }
 
     public var heightInMeters: Double {
