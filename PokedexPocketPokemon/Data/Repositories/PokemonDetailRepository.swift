@@ -6,7 +6,7 @@
 //
 
 import Foundation
-internal import RxSwift
+import RxSwift
 import PokedexPocketCore
 
 public class PokemonDetailRepository: PokemonDetailRepositoryProtocol {

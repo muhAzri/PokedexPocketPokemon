@@ -7,8 +7,8 @@
 
 import Foundation
 import Combine
-internal import RxSwift
-internal import RxCocoa
+import RxSwift
+import RxCocoa
 
 public class PokemonDetailViewModel: ObservableObject {
     @Published public var pokemon: PokemonDetail?

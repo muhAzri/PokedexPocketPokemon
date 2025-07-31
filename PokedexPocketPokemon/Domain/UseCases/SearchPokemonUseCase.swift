@@ -6,7 +6,7 @@
 //
 
 import Foundation
-internal import RxSwift
+import RxSwift
 
 public protocol SearchPokemonUseCaseProtocol {
     func execute(query: String) -> Observable<[PokemonListItem]>

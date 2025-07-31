@@ -7,8 +7,8 @@
 
 import Foundation
 import Combine
-internal import RxSwift
-internal import RxCocoa
+import RxSwift
+import RxCocoa
 
 public class PokemonListViewModel: ObservableObject {
     @Published public var pokemonList: [PokemonListItem] = []

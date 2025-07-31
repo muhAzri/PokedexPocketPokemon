@@ -6,8 +6,8 @@
 //
 
 import Foundation
-internal import RxSwift
-internal import RxCocoa
+import RxSwift
+import RxCocoa
 import PokedexPocketCore
 
 // This file serves as the main entry point for the PokedexPocketPokemon framework
