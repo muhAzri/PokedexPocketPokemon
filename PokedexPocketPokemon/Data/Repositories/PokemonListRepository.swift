@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import RxSwift
-import PokedexPocketCore
+public import RxSwift
+public import PokedexPocketCore
 
 public class PokemonListRepository: PokemonListRepositoryProtocol {
     private let networkService: NetworkServiceProtocol

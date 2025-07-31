@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RxSwift
+public import RxSwift
 
 public protocol GetPokemonDetailUseCaseProtocol {
     func execute(id: Int) -> Observable<PokemonDetail>

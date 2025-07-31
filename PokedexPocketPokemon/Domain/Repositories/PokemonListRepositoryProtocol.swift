@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RxSwift
+public import RxSwift
 
 public protocol PokemonListRepositoryProtocol {
     func getPokemonList(offset: Int, limit: Int) -> Observable<PokemonList>
