@@ -117,6 +117,8 @@ class MockPokemonListRepository: PokemonListRepositoryProtocol {
     }
 }
 
+/*
+// TODO: Uncomment when Favourite module is implemented
 // MARK: - Mock Favorite Pokemon Repository
 class MockFavoritePokemonRepository: FavoritePokemonRepositoryProtocol {
     var shouldReturnError = false
@@ -209,3 +211,4 @@ class MockFavoritePokemonRepository: FavoritePokemonRepositoryProtocol {
         lastCheckedId = nil
     }
 }
+*/

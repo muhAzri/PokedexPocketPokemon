@@ -169,6 +169,8 @@ struct TestData {
         results: [pokemonListItemBulbasaur, pokemonListItemIvysaur]
     )
 
+    /*
+    // TODO: Uncomment when Favourite module is implemented
     // MARK: - Favorite Pokemon Test Data
     static let favoritePikachu = FavoritePokemon(
         id: 25,
@@ -185,6 +187,7 @@ struct TestData {
         imageURL: "\(officialArtworkURL)/6.png",
         dateAdded: Date(timeIntervalSince1970: 1627776000) // Fixed date for testing
     )
+    */
 
     // MARK: - Network Response Test Data
     static let pokemonDetailResponse = PokemonDetailResponse(

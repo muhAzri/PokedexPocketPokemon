@@ -61,6 +61,8 @@ class MockGetPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol {
     }
 }
 
+/*
+// TODO: Uncomment when Favourite module is implemented
 // MARK: - Mock Add Favorite Pokemon Use Case
 class MockAddFavoritePokemonUseCase: AddFavoritePokemonUseCaseProtocol {
     var shouldReturnError = false
@@ -188,3 +190,4 @@ class MockClearAllFavoritesUseCase: ClearAllFavoritesUseCaseProtocol {
         executeCallCount = 0
     }
 }
+*/

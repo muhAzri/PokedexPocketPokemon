@@ -41,9 +41,10 @@ final class PokemonDetailViewModelTests: XCTestCase {
     override func tearDown() {
         sut = nil
         mockGetPokemonDetailUseCase = nil
-        mockAddFavoriteUseCase = nil
-        mockRemoveFavoriteUseCase = nil
-        mockCheckIsFavoriteUseCase = nil
+        // TODO: Uncomment when Favourite module is implemented
+        // mockAddFavoriteUseCase = nil
+        // mockRemoveFavoriteUseCase = nil
+        // mockCheckIsFavoriteUseCase = nil
         disposeBag = nil
         cancellables = nil
         super.tearDown()
@@ -56,10 +57,13 @@ final class PokemonDetailViewModelTests: XCTestCase {
         XCTAssertNil(sut.error)
         XCTAssertFalse(sut.isFavorite)
         XCTAssertFalse(sut.favoriteOperationInProgress)
-        XCTAssertEqual(mockCheckIsFavoriteUseCase.executeCallCount, 1)
-        XCTAssertEqual(mockCheckIsFavoriteUseCase.lastCheckedId, 25)
+        // TODO: Uncomment when Favourite module is implemented
+        // XCTAssertEqual(mockCheckIsFavoriteUseCase.executeCallCount, 1)
+        // XCTAssertEqual(mockCheckIsFavoriteUseCase.lastCheckedId, 25)
     }
 
+    /*
+    // TODO: Uncomment when Favourite module is implemented
     func testInitializationWithDifferentPokemonId() {
         _ = PokemonDetailViewModel(
             pokemonId: 150,
@@ -73,6 +77,7 @@ final class PokemonDetailViewModelTests: XCTestCase {
         XCTAssertEqual(mockCheckIsFavoriteUseCase.executeCallCount, 2)
         XCTAssertEqual(mockCheckIsFavoriteUseCase.lastCheckedId, 150)
     }
+    */
 
     // MARK: - Load Pokemon Detail Tests
     func testLoadPokemonDetail_Success() {
