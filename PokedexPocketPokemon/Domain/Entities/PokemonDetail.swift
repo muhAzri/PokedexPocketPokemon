@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PokedexPocketCore
+public import PokedexPocketCore
 
 public struct PokemonDetail: Identifiable, Equatable, FavoritePokemonProtocol {
     public let id: Int

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RxSwift
+internal import RxSwift
 import Combine
 
 public struct PokemonDetailView: View {

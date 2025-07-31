@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PokedexPocketCore
+internal import PokedexPocketCore
 
 public struct PokemonListView: View {
     @StateObject private var viewModel: PokemonListViewModel

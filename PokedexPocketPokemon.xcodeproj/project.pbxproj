@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6394BD5D2E3B06CD005C4BCA /* PokedexPocketPokemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6394BD512E3B06CD005C4BCA /* PokedexPocketPokemon.framework */; };
-		6394BD732E3B0929005C4BCA /* PokedexPocketCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BD722E3B0929005C4BCA /* PokedexPocketCore */; };
 		6394BE4D2E3B2BE3005C4BCA /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BE4C2E3B2BE3005C4BCA /* RxBlocking */; };
 		6394BE4F2E3B2BE3005C4BCA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BE4E2E3B2BE3005C4BCA /* RxCocoa */; };
 		6394BE512E3B2BE3005C4BCA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BE502E3B2BE3005C4BCA /* RxRelay */; };
+		6394C47E2E3BC4E1005C4BCA /* PokedexPocketCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6394C47D2E3BC4E1005C4BCA /* PokedexPocketCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6394C47E2E3BC4E1005C4BCA /* PokedexPocketCore in Frameworks */,
 				6394BE4F2E3B2BE3005C4BCA /* RxCocoa in Frameworks */,
-				6394BD732E3B0929005C4BCA /* PokedexPocketCore in Frameworks */,
 				6394BE512E3B2BE3005C4BCA /* RxRelay in Frameworks */,
 				6394BE4D2E3B2BE3005C4BCA /* RxBlocking in Frameworks */,
 			);
@@ -122,10 +122,10 @@
 			);
 			name = PokedexPocketPokemon;
 			packageProductDependencies = (
-				6394BD722E3B0929005C4BCA /* PokedexPocketCore */,
 				6394BE4C2E3B2BE3005C4BCA /* RxBlocking */,
 				6394BE4E2E3B2BE3005C4BCA /* RxCocoa */,
 				6394BE502E3B2BE3005C4BCA /* RxRelay */,
+				6394C47D2E3BC4E1005C4BCA /* PokedexPocketCore */,
 			);
 			productName = PokedexPocketPokemon;
 			productReference = 6394BD512E3B06CD005C4BCA /* PokedexPocketPokemon.framework */;
@@ -182,8 +182,8 @@
 			mainGroup = 6394BD472E3B06CD005C4BCA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6394BD712E3B0929005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */,
 				6394BE4B2E3B2BE3005C4BCA /* XCRemoteSwiftPackageReference "RxSwift" */,
+				6394C47C2E3BC4E1005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6394BD522E3B06CD005C4BCA /* Products */;
@@ -497,14 +497,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6394BD712E3B0929005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/muhAzri/PokedexPocketCore";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		6394BE4B2E3B2BE3005C4BCA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -513,14 +505,17 @@
 				minimumVersion = 6.9.0;
 			};
 		};
+		6394C47C2E3BC4E1005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/muhAzri/PokedexPocketCore";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6394BD722E3B0929005C4BCA /* PokedexPocketCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6394BD712E3B0929005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */;
-			productName = PokedexPocketCore;
-		};
 		6394BE4C2E3B2BE3005C4BCA /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6394BE4B2E3B2BE3005C4BCA /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -535,6 +530,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6394BE4B2E3B2BE3005C4BCA /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		6394C47D2E3BC4E1005C4BCA /* PokedexPocketCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6394C47C2E3BC4E1005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */;
+			productName = PokedexPocketCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
