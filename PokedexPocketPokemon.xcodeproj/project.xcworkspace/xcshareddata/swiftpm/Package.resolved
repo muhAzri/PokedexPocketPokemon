@@ -1,0 +1,33 @@
+{
+  "originHash" : "0937b73c16eb2fb63fb37be1b46013d1255ef1107dcea7e83b44eb30d05deb1d",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
+      }
+    },
+    {
+      "identity" : "pokedexpocketcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/muhAzri/PokedexPocketCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ac74cd69a40c55c9b01b90bcef00098570802eda"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "5dd1907d64f0d36f158f61a466bab75067224893",
+        "version" : "6.9.0"
+      }
+    }
+  ],
+  "version" : 3
+}
