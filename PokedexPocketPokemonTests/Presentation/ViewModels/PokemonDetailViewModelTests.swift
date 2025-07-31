@@ -9,33 +9,32 @@ import XCTest
 import RxSwift
 import Combine
 import PokedexPocketCore
-@testable import PokedexPocket
+@testable import PokedexPocketPokemon
 
 final class PokemonDetailViewModelTests: XCTestCase {
 
     private var sut: PokemonDetailViewModel!
     private var mockGetPokemonDetailUseCase: MockGetPokemonDetailUseCase!
-    private var mockAddFavoriteUseCase: MockAddFavoritePokemonUseCase!
-    private var mockRemoveFavoriteUseCase: MockRemoveFavoritePokemonUseCase!
-    private var mockCheckIsFavoriteUseCase: MockCheckIsFavoritePokemonUseCase!
+    // TODO: Uncomment when Favourite module is implemented
+    // private var mockAddFavoriteUseCase: MockAddFavoritePokemonUseCase!
+    // private var mockRemoveFavoriteUseCase: MockRemoveFavoritePokemonUseCase!
+    // private var mockCheckIsFavoriteUseCase: MockCheckIsFavoritePokemonUseCase!
     private var disposeBag: DisposeBag!
     private var cancellables: Set<AnyCancellable>!
 
     override func setUp() {
         super.setUp()
         mockGetPokemonDetailUseCase = MockGetPokemonDetailUseCase()
-        mockAddFavoriteUseCase = MockAddFavoritePokemonUseCase()
-        mockRemoveFavoriteUseCase = MockRemoveFavoritePokemonUseCase()
-        mockCheckIsFavoriteUseCase = MockCheckIsFavoritePokemonUseCase()
+        // TODO: Uncomment when Favourite module is implemented
+        // mockAddFavoriteUseCase = MockAddFavoritePokemonUseCase()
+        // mockRemoveFavoriteUseCase = MockRemoveFavoritePokemonUseCase()
+        // mockCheckIsFavoriteUseCase = MockCheckIsFavoritePokemonUseCase()
         disposeBag = DisposeBag()
         cancellables = Set<AnyCancellable>()
 
         sut = PokemonDetailViewModel(
             pokemonId: 25,
-            getPokemonDetailUseCase: mockGetPokemonDetailUseCase,
-            addFavoriteUseCase: mockAddFavoriteUseCase,
-            removeFavoriteUseCase: mockRemoveFavoriteUseCase,
-            checkIsFavoriteUseCase: mockCheckIsFavoriteUseCase
+            getPokemonDetailUseCase: mockGetPokemonDetailUseCase
         )
     }
 
@@ -248,6 +247,8 @@ final class PokemonDetailViewModelTests: XCTestCase {
         XCTAssertNil(sut.error)
     }
 
+    /*
+    // TODO: Uncomment all favorite tests when Favourite module is implemented
     // MARK: - Check Favorite Status Tests
     func testCheckFavoriteStatus_IsFavorite() {
         mockCheckIsFavoriteUseCase.isFavoriteToReturn = true
@@ -263,7 +264,8 @@ final class PokemonDetailViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        sut.checkFavoriteStatus()
+        // TODO: Uncomment when Favourite module is implemented
+        // sut.checkFavoriteStatus()
 
         wait(for: [expectation], timeout: 1.0)
 
@@ -282,7 +284,8 @@ final class PokemonDetailViewModelTests: XCTestCase {
             expectation.fulfill()
         }
 
-        sut.checkFavoriteStatus()
+        // TODO: Uncomment when Favourite module is implemented
+        // sut.checkFavoriteStatus()
 
         wait(for: [expectation], timeout: 1.0)
         
@@ -305,7 +308,8 @@ final class PokemonDetailViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        sut.checkFavoriteStatus()
+        // TODO: Uncomment when Favourite module is implemented
+        // sut.checkFavoriteStatus()
 
         wait(for: [expectation], timeout: 1.0)
 
@@ -554,4 +558,5 @@ final class PokemonDetailViewModelTests: XCTestCase {
         XCTAssertEqual(mockAddFavoriteUseCase.executeCallCount, 1)
         XCTAssertEqual(mockRemoveFavoriteUseCase.executeCallCount, 1)
     }
+    */
 }

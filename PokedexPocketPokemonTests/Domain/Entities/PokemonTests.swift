@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import PokedexPocket
+@testable import PokedexPocketPokemon
 
 final class PokemonTests: XCTestCase {
 

@@ -8,7 +8,7 @@
 import XCTest
 import RxSwift
 import PokedexPocketCore
-@testable import PokedexPocket
+@testable import PokedexPocketPokemon
 
 final class GetPokemonDetailUseCaseTests: XCTestCase {
 
