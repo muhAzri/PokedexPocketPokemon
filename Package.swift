@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.9.0"),
         .package(url: "https://github.com/muhAzri/PokedexPocketCore", branch: "main"),
-        .package(path: "../PokedexPocketFavourite")
+        .package(url: "https://github.com/muhAzri/PokedexPocketFavourite.git", branch: "main")
     ],
     targets: [
         .target(
