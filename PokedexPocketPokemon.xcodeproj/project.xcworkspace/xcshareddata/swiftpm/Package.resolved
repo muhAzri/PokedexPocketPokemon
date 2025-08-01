@@ -1,5 +1,5 @@
 {
-  "originHash" : "f5fc675fecef85e99e67ea48aaf3c642a6abff11efe0b07962e6c6c474bf8b7f",
+  "originHash" : "2ee16d3ab4c423b99c8e8e87d694fd26137386d596f16040da46e97183b1b7c9",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -17,6 +17,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "ebb65afa67fce591bcfefcc0d94e868fc7cce8ce"
+      }
+    },
+    {
+      "identity" : "pokedexpocketfavourite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/muhAzri/PokedexPocketFavourite.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "af85954f79fa20950e647952b757c36c53996aad"
       }
     },
     {

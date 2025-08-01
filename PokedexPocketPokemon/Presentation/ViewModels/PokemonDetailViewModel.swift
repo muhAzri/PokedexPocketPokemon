@@ -9,6 +9,7 @@ import Foundation
 import Combine
 internal import RxSwift
 internal import RxCocoa
+internal import PokedexPocketFavourite
 
 public class PokemonDetailViewModel: ObservableObject {
     @Published public var pokemon: PokemonDetail?
@@ -19,27 +20,24 @@ public class PokemonDetailViewModel: ObservableObject {
 
     private let pokemonId: Int
     private let getPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol
-    // TODO: Uncomment when Favourite module is implemented
-    // private let addFavoriteUseCase: AddFavoritePokemonUseCaseProtocol
-    // private let removeFavoriteUseCase: RemoveFavoritePokemonUseCaseProtocol
-    // private let checkIsFavoriteUseCase: CheckIsFavoritePokemonUseCaseProtocol
+    private let addFavoriteUseCase: AddFavoritePokemonUseCaseProtocol
+    private let removeFavoriteUseCase: RemoveFavoritePokemonUseCaseProtocol
+    private let checkIsFavoriteUseCase: CheckIsFavoritePokemonUseCaseProtocol
     private let disposeBag = DisposeBag()
 
-    public init(
+    internal init(
         pokemonId: Int,
-        getPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol
-        // TODO: Uncomment when Favourite module is implemented
-        // addFavoriteUseCase: AddFavoritePokemonUseCaseProtocol,
-        // removeFavoriteUseCase: RemoveFavoritePokemonUseCaseProtocol,
-        // checkIsFavoriteUseCase: CheckIsFavoritePokemonUseCaseProtocol
+        getPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol,
+        addFavoriteUseCase: AddFavoritePokemonUseCaseProtocol,
+        removeFavoriteUseCase: RemoveFavoritePokemonUseCaseProtocol,
+        checkIsFavoriteUseCase: CheckIsFavoritePokemonUseCaseProtocol
     ) {
         self.pokemonId = pokemonId
         self.getPokemonDetailUseCase = getPokemonDetailUseCase
-        // TODO: Uncomment when Favourite module is implemented
-        // self.addFavoriteUseCase = addFavoriteUseCase
-        // self.removeFavoriteUseCase = removeFavoriteUseCase
-        // self.checkIsFavoriteUseCase = checkIsFavoriteUseCase
-        // checkFavoriteStatus()
+        self.addFavoriteUseCase = addFavoriteUseCase
+        self.removeFavoriteUseCase = removeFavoriteUseCase
+        self.checkIsFavoriteUseCase = checkIsFavoriteUseCase
+        checkFavoriteStatus()
     }
 
     public func loadPokemonDetail() {
@@ -64,14 +62,6 @@ public class PokemonDetailViewModel: ObservableObject {
             .disposed(by: disposeBag)
     }
 
-    // TODO: Add favorite functionality when Favourite module is implemented
-    public func toggleFavorite() {
-        // Placeholder - will be implemented when Favourite module is ready
-        isFavorite.toggle()
-    }
-    
-    /*
-    // TODO: Uncomment when Favourite module is implemented
     public func checkFavoriteStatus() {
         checkIsFavoriteUseCase
             .execute(pokemonId: pokemonId)
@@ -142,5 +132,4 @@ public class PokemonDetailViewModel: ObservableObject {
             )
             .disposed(by: disposeBag)
     }
-    */
 }

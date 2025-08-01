@@ -12,6 +12,7 @@
 		6394BE4F2E3B2BE3005C4BCA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BE4E2E3B2BE3005C4BCA /* RxCocoa */; };
 		6394BE512E3B2BE3005C4BCA /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 6394BE502E3B2BE3005C4BCA /* RxRelay */; };
 		6394C47E2E3BC4E1005C4BCA /* PokedexPocketCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6394C47D2E3BC4E1005C4BCA /* PokedexPocketCore */; };
+		6394C5292E3BC90B005C4BCA /* PokedexPocketFavourite in Frameworks */ = {isa = PBXBuildFile; productRef = 6394C5282E3BC90B005C4BCA /* PokedexPocketFavourite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 				6394BE4F2E3B2BE3005C4BCA /* RxCocoa in Frameworks */,
 				6394BE512E3B2BE3005C4BCA /* RxRelay in Frameworks */,
 				6394BE4D2E3B2BE3005C4BCA /* RxBlocking in Frameworks */,
+				6394C5292E3BC90B005C4BCA /* PokedexPocketFavourite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +128,7 @@
 				6394BE4E2E3B2BE3005C4BCA /* RxCocoa */,
 				6394BE502E3B2BE3005C4BCA /* RxRelay */,
 				6394C47D2E3BC4E1005C4BCA /* PokedexPocketCore */,
+				6394C5282E3BC90B005C4BCA /* PokedexPocketFavourite */,
 			);
 			productName = PokedexPocketPokemon;
 			productReference = 6394BD512E3B06CD005C4BCA /* PokedexPocketPokemon.framework */;
@@ -184,6 +187,7 @@
 			packageReferences = (
 				6394BE4B2E3B2BE3005C4BCA /* XCRemoteSwiftPackageReference "RxSwift" */,
 				6394C47C2E3BC4E1005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */,
+				6394C5272E3BC90B005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketFavourite" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6394BD522E3B06CD005C4BCA /* Products */;
@@ -513,6 +517,14 @@
 				kind = branch;
 			};
 		};
+		6394C5272E3BC90B005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketFavourite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/muhAzri/PokedexPocketFavourite.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -535,6 +547,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6394C47C2E3BC4E1005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketCore" */;
 			productName = PokedexPocketCore;
+		};
+		6394C5282E3BC90B005C4BCA /* PokedexPocketFavourite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6394C5272E3BC90B005C4BCA /* XCRemoteSwiftPackageReference "PokedexPocketFavourite" */;
+			productName = PokedexPocketFavourite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import PokedexPocketCore
+@testable import PokedexPocketFavourite
 @testable import PokedexPocketPokemon
 
 // MARK: - Mock Get Pokemon Detail Use Case
@@ -61,16 +62,14 @@ class MockGetPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol {
     }
 }
 
-/*
-// TODO: Uncomment when Favourite module is implemented
 // MARK: - Mock Add Favorite Pokemon Use Case
 class MockAddFavoritePokemonUseCase: AddFavoritePokemonUseCaseProtocol {
     var shouldReturnError = false
     var errorToReturn: Error = NetworkError.unknown
     var executeCallCount = 0
-    var lastAddedPokemon: PokemonDetail?
+    var lastAddedPokemon: FavoritePokemonProtocol?
 
-    func execute(pokemon: PokemonDetail) -> Observable<Void> {
+    func execute(pokemon: FavoritePokemonProtocol) -> Observable<Void> {
         executeCallCount += 1
         lastAddedPokemon = pokemon
 
@@ -190,4 +189,3 @@ class MockClearAllFavoritesUseCase: ClearAllFavoritesUseCaseProtocol {
         executeCallCount = 0
     }
 }
-*/

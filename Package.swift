@@ -16,7 +16,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.9.0"),
-        .package(url: "https://github.com/muhAzri/PokedexPocketCore", branch: "main")
+        .package(url: "https://github.com/muhAzri/PokedexPocketCore", branch: "main"),
+        .package(path: "../PokedexPocketFavourite")
     ],
     targets: [
         .target(
@@ -25,7 +26,8 @@ let package = Package(
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "RxRelay", package: "RxSwift"),
-                .product(name: "PokedexPocketCore", package: "PokedexPocketCore")
+                .product(name: "PokedexPocketCore", package: "PokedexPocketCore"),
+                .product(name: "PokedexPocketFavourite", package: "PokedexPocketFavourite")
             ],
             path: "PokedexPocketPokemon"
         ),
@@ -34,7 +36,8 @@ let package = Package(
             dependencies: [
                 "PokedexPocketPokemon",
                 .product(name: "RxBlocking", package: "RxSwift"),
-                .product(name: "RxTest", package: "RxSwift")
+                .product(name: "RxTest", package: "RxSwift"),
+                .product(name: "PokedexPocketFavourite", package: "PokedexPocketFavourite")
             ],
             path: "PokedexPocketPokemonTests"
         ),

@@ -10,6 +10,7 @@ import SwiftUI
 internal import RxSwift
 internal import RxCocoa
 internal import PokedexPocketCore
+internal import PokedexPocketFavourite
 
 // This file serves as the main entry point for the PokedexPocketPokemon framework
 // All public APIs are made available through the individual source files
