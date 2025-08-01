@@ -9,7 +9,7 @@ import Foundation
 import Combine
 internal import RxSwift
 internal import RxCocoa
-internal import PokedexPocketFavourite
+public import PokedexPocketFavourite
 
 public class PokemonDetailViewModel: ObservableObject {
     @Published public var pokemon: PokemonDetail?
@@ -25,7 +25,7 @@ public class PokemonDetailViewModel: ObservableObject {
     private let checkIsFavoriteUseCase: CheckIsFavoritePokemonUseCaseProtocol
     private let disposeBag = DisposeBag()
 
-    internal init(
+    public init(
         pokemonId: Int,
         getPokemonDetailUseCase: GetPokemonDetailUseCaseProtocol,
         addFavoriteUseCase: AddFavoritePokemonUseCaseProtocol,
