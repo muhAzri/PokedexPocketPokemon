@@ -1,3 +1,7 @@
 .build
 .swiftpm
 Package.resolved
+
+# Xcode user-specific files
+*.xcuserstate
+xcuserdata/
