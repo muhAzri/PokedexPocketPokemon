@@ -1,0 +1,33 @@
+/*
+   Localizable.strings
+   PokedexPocketPokemon
+
+   Created on 20/09/2025.
+   German localization
+*/
+
+// MARK: - Error Messages
+"error_something_went_wrong" = "Ups! Etwas ist schief gelaufen";
+"button_try_again" = "Erneut versuchen";
+
+// MARK: - Search
+"search_no_results" = "Keine Ergebnisse";
+"search_no_results_description" = "Kein Pokémon gefunden, das Ihrer Suche entspricht. Versuchen Sie ein anderes Stichwort.";
+
+// MARK: - Pokemon Details
+"pokemon_height" = "Größe";
+"pokemon_weight" = "Gewicht";
+"pokemon_base_exp" = "Basis-EXP";
+"pokemon_species" = "Spezies";
+"pokemon_hidden_ability" = "Versteckte Fähigkeit";
+"pokemon_shiny" = "Shiny";
+"pokemon_view_back" = "Rückseite";
+"pokemon_view_front" = "Vorderseite";
+"pokemon_more_moves" = "... und %d weitere Attacken";
+
+// MARK: - General
+"pokemon_label" = "Pokémon";
+
+// MARK: - Units
+"unit_meters" = "m";
+"unit_kilograms" = "kg";

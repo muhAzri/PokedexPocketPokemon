@@ -1,0 +1,33 @@
+/*
+   Localizable.strings
+   PokedexPocketPokemon
+
+   Created on 20/09/2025.
+   Czech localization
+*/
+
+// MARK: - Error Messages
+"error_something_went_wrong" = "Ups! Něco se pokazilo";
+"button_try_again" = "Zkusit znovu";
+
+// MARK: - Search
+"search_no_results" = "Žádné výsledky";
+"search_no_results_description" = "Nebyl nalezen žádný Pokémon odpovídající vašemu hledání. Zkuste jiné klíčové slovo.";
+
+// MARK: - Pokemon Details
+"pokemon_height" = "Výška";
+"pokemon_weight" = "Váha";
+"pokemon_base_exp" = "Základní EXP";
+"pokemon_species" = "Druh";
+"pokemon_hidden_ability" = "Skrytá schopnost";
+"pokemon_shiny" = "Shiny";
+"pokemon_view_back" = "Zadní";
+"pokemon_view_front" = "Přední";
+"pokemon_more_moves" = "... a %d dalších útoků";
+
+// MARK: - General
+"pokemon_label" = "Pokémon";
+
+// MARK: - Units
+"unit_meters" = "m";
+"unit_kilograms" = "kg";

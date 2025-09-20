@@ -1,0 +1,33 @@
+/*
+   Localizable.strings
+   PokedexPocketPokemon
+
+   Created on 20/09/2025.
+   Indonesian localization
+*/
+
+// MARK: - Error Messages
+"error_something_went_wrong" = "Ups! Ada yang salah";
+"button_try_again" = "Coba Lagi";
+
+// MARK: - Search
+"search_no_results" = "Tidak Ada Hasil";
+"search_no_results_description" = "Tidak ditemukan Pokémon yang sesuai dengan pencarian Anda. Coba kata kunci lain.";
+
+// MARK: - Pokemon Details
+"pokemon_height" = "Tinggi";
+"pokemon_weight" = "Berat";
+"pokemon_base_exp" = "EXP Dasar";
+"pokemon_species" = "Spesies";
+"pokemon_hidden_ability" = "Kemampuan Tersembunyi";
+"pokemon_shiny" = "Shiny";
+"pokemon_view_back" = "Belakang";
+"pokemon_view_front" = "Depan";
+"pokemon_more_moves" = "... dan %d gerakan lainnya";
+
+// MARK: - General
+"pokemon_label" = "Pokémon";
+
+// MARK: - Units
+"unit_meters" = "m";
+"unit_kilograms" = "kg";

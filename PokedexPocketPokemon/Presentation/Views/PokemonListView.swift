@@ -127,12 +127,12 @@ public struct PokemonListView: View {
                     .foregroundColor(.secondary)
 
                 VStack(spacing: 8) {
-                    Text("Tidak Ada Hasil")
+                    Text(NSLocalizedString("search_no_results", comment: "No results found message"))
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.primary)
 
-                    Text("Tidak ditemukan Pokémon yang sesuai dengan pencarian Anda. Coba kata kunci lain.")
+                    Text(NSLocalizedString("search_no_results_description", comment: "No results found description"))
                         .font(.body)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)

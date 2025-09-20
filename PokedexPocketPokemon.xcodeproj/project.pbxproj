@@ -164,6 +164,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+					"New-1",
+				);
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
@@ -181,6 +185,9 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				cs,
+				id,
 			);
 			mainGroup = 6394BD472E3B06CD005C4BCA;
 			minimizedProjectReferenceProxies = 1;

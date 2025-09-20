@@ -268,7 +268,7 @@ public struct PokemonSpriteControlsSection: View {
 
             HStack {
                 HStack(spacing: 8) {
-                    Text("Shiny")
+                    Text(NSLocalizedString("pokemon_shiny", comment: "Shiny Pokemon label"))
                         .font(.caption)
                         .foregroundColor(.primary)
                     Toggle("", isOn: $isShinyVariant)
@@ -293,7 +293,7 @@ public struct PokemonSpriteControlsSection: View {
                             HStack(spacing: 6) {
                                 Image(systemName: "arrow.triangle.2.circlepath")
                                     .font(.caption)
-                                Text(isFrontView ? "Back" : "Front")
+                                Text(isFrontView ? NSLocalizedString("pokemon_view_back", comment: "Back view button") : NSLocalizedString("pokemon_view_front", comment: "Front view button"))
                                     .font(.caption)
                             }
                             .padding(.horizontal, 16)

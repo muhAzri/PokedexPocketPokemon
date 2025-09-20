@@ -85,7 +85,7 @@ public struct PokemonCard: View {
                             .lineLimit(1)
                             .minimumScaleFactor(0.8)
 
-                        Text("Pokémon")
+                        Text(NSLocalizedString("pokemon_label", comment: "Pokemon label"))
                             .font(.caption)
                             .fontWeight(.medium)
                             .padding(.horizontal, 8)

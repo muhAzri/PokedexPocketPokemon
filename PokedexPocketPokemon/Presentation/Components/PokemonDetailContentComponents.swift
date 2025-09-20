@@ -54,27 +54,27 @@ public struct PokemonAboutSection: View {
         VStack(alignment: .leading, spacing: 20) {
             HStack(spacing: 40) {
                 VStack(spacing: 8) {
-                    Text("Height")
+                    Text(NSLocalizedString("pokemon_height", comment: "Pokemon height label"))
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundColor(.secondary)
-                    Text("\(pokemon.heightInMeters, specifier: "%.1f") m")
+                    Text("\(pokemon.heightInMeters, specifier: "%.1f") \(NSLocalizedString("unit_meters", comment: "Meters unit"))")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
 
                 VStack(spacing: 8) {
-                    Text("Weight")
+                    Text(NSLocalizedString("pokemon_weight", comment: "Pokemon weight label"))
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundColor(.secondary)
-                    Text("\(pokemon.weightInKilograms, specifier: "%.1f") kg")
+                    Text("\(pokemon.weightInKilograms, specifier: "%.1f") \(NSLocalizedString("unit_kilograms", comment: "Kilograms unit"))")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
 
                 VStack(spacing: 8) {
-                    Text("Base EXP")
+                    Text(NSLocalizedString("pokemon_base_exp", comment: "Pokemon base experience label"))
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundColor(.secondary)
@@ -88,7 +88,7 @@ public struct PokemonAboutSection: View {
             .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 12) {
-                Text("Species")
+                Text(NSLocalizedString("pokemon_species", comment: "Pokemon species label"))
                     .font(.title3)
                     .fontWeight(.semibold)
 
@@ -148,7 +148,7 @@ public struct PokemonMovesSection: View {
             }
 
             if pokemon.moves.count > 20 {
-                Text("... and \(pokemon.moves.count - 20) more moves")
+                Text(String.localizedStringWithFormat(NSLocalizedString("pokemon_more_moves", comment: "More moves text"), pokemon.moves.count - 20))
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .padding(.horizontal)

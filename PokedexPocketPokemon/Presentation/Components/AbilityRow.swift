@@ -22,7 +22,7 @@ public struct AbilityRow: View {
                     .fontWeight(.medium)
 
                 if ability.isHidden {
-                    Text("Hidden Ability")
+                    Text(NSLocalizedString("pokemon_hidden_ability", comment: "Hidden ability label"))
                         .font(.caption)
                         .foregroundColor(.orange)
                         .padding(.horizontal, 8)

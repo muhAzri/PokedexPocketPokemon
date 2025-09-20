@@ -98,7 +98,7 @@ public struct PokemonDetailView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.red)
 
-            Text("Oops! Something went wrong")
+            Text(NSLocalizedString("error_something_went_wrong", comment: "Error message when something goes wrong"))
                 .font(.headline)
 
             Text(error.localizedDescription)
@@ -106,7 +106,7 @@ public struct PokemonDetailView: View {
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
 
-            Button("Try Again") {
+            Button(NSLocalizedString("button_try_again", comment: "Try again button")) {
                 viewModel.loadPokemonDetail()
             }
             .buttonStyle(.borderedProminent)
