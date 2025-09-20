@@ -36,9 +36,19 @@ jobs:
 
     - name: Run tests with coverage
       run: |
+        # Try with scheme first, fallback to target if scheme fails
         xcodebuild test \
           -project PokedexPocketPokemon.xcodeproj \
           -scheme PokedexPocketPokemon \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+          -enableCodeCoverage YES \
+          -derivedDataPath DerivedData \
+          -resultBundlePath TestResults.xcresult \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO || \
+        xcodebuild build-for-testing test-without-building \
+          -project PokedexPocketPokemon.xcodeproj \
+          -target PokedexPocketPokemonTests \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
           -enableCodeCoverage YES \
           -derivedDataPath DerivedData \

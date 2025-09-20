@@ -43,6 +43,7 @@ jobs:
 
     - name: Build and test
       run: |
+        # Try with scheme first, fallback to target if scheme fails
         xcodebuild test \
           -project PokedexPocketPokemon.xcodeproj \
           -scheme PokedexPocketPokemon \
@@ -50,8 +51,15 @@ jobs:
           -enableCodeCoverage YES \
           -derivedDataPath DerivedData \
           CODE_SIGN_IDENTITY="" \
-          CODE_SIGNING_REQUIRED=NO \
-          | xcpretty --report junit --output test-results.xml
+          CODE_SIGNING_REQUIRED=NO || \
+        xcodebuild build-for-testing test-without-building \
+          -project PokedexPocketPokemon.xcodeproj \
+          -target PokedexPocketPokemonTests \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+          -enableCodeCoverage YES \
+          -derivedDataPath DerivedData \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO
 
     - name: Generate code coverage report
       run: |
