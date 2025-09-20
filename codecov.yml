@@ -1,0 +1,50 @@
+# Codecov configuration file
+# https://docs.codecov.com/docs/codecov-yaml
+
+coverage:
+  status:
+    project:
+      default:
+        target: 80%
+        threshold: 5%
+        if_not_found: success
+        if_ci_failed: error
+    patch:
+      default:
+        target: 70%
+        threshold: 10%
+        if_not_found: success
+        if_ci_failed: error
+
+  ignore:
+    # Ignore test files
+    - "**/*Tests/**"
+    - "**/*Test.swift"
+    - "**/Test*.swift"
+    # Ignore generated files
+    - "**/*.generated.swift"
+    - "**/Generated/**"
+    # Ignore example/demo files
+    - "**/Example/**"
+    - "**/Demo/**"
+    # Ignore configuration files
+    - "**/*.plist"
+    - "**/Info.plist"
+
+comment:
+  layout: "reach,diff,flags,tree"
+  behavior: default
+  require_changes: false
+  require_base: no
+  require_head: yes
+
+github_checks:
+  annotations: true
+
+flags:
+  ios:
+    paths:
+      - PokedexPocketPokemon/
+  unittests:
+    paths:
+      - PokedexPocketPokemonTests/

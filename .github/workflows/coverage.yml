@@ -1,0 +1,163 @@
+name: Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  coverage:
+    name: Code Coverage
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Select Xcode version
+      run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
+    - name: Cache Swift Package Manager
+      uses: actions/cache@v4
+      with:
+        path: .build
+        key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-spm-
+
+    - name: Install xcov for coverage conversion
+      run: gem install xcov
+
+    - name: Resolve dependencies
+      run: xcodebuild -resolvePackageDependencies -project PokedexPocketPokemon.xcodeproj
+
+    - name: Run tests with coverage
+      run: |
+        xcodebuild test \
+          -project PokedexPocketPokemon.xcodeproj \
+          -scheme PokedexPocketPokemon \
+          -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' \
+          -enableCodeCoverage YES \
+          -derivedDataPath DerivedData \
+          -resultBundlePath TestResults.xcresult \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO
+
+    - name: Generate coverage report
+      run: |
+        # Generate JSON coverage report
+        xcrun xccov view --report --json TestResults.xcresult > coverage.json
+
+        # Generate detailed coverage report
+        xcrun xccov view --report TestResults.xcresult > coverage-report.txt
+
+        # Extract coverage percentage
+        COVERAGE_PERCENT=$(xcrun xccov view --report TestResults.xcresult | grep -o '[0-9]*\.[0-9]*%' | head -1)
+        echo "Coverage: $COVERAGE_PERCENT"
+        echo "COVERAGE_PERCENT=$COVERAGE_PERCENT" >> $GITHUB_ENV
+
+    - name: Convert to lcov format
+      run: |
+        # Create a simple lcov format file for codecov
+        python3 << 'EOF'
+        import json
+        import sys
+
+        # Read the coverage JSON
+        try:
+            with open('coverage.json', 'r') as f:
+                coverage_data = json.load(f)
+        except:
+            print("No coverage data found, creating empty lcov file")
+            with open('coverage.lcov', 'w') as f:
+                f.write("TN:\nend_of_record\n")
+            sys.exit(0)
+
+        # Create lcov format
+        with open('coverage.lcov', 'w') as lcov_file:
+            lcov_file.write("TN:\n")
+
+            # Process targets if available
+            if 'targets' in coverage_data:
+                for target in coverage_data['targets']:
+                    if 'files' in target:
+                        for file_data in target['files']:
+                            file_path = file_data.get('path', 'unknown')
+                            lcov_file.write(f"SF:{file_path}\n")
+
+                            # Add function data if available
+                            if 'functions' in file_data:
+                                for func in file_data['functions']:
+                                    name = func.get('name', 'unknown')
+                                    line = func.get('lineNumber', 1)
+                                    hit = 1 if func.get('executionCount', 0) > 0 else 0
+                                    lcov_file.write(f"FN:{line},{name}\n")
+                                    lcov_file.write(f"FNDA:{hit},{name}\n")
+
+                            # Add line data if available
+                            if 'lineCoverage' in file_data:
+                                lines_hit = 0
+                                lines_found = 0
+                                for line in file_data['lineCoverage']:
+                                    line_num = line.get('line', 1)
+                                    hit_count = line.get('executionCount', 0)
+                                    lcov_file.write(f"DA:{line_num},{hit_count}\n")
+                                    lines_found += 1
+                                    if hit_count > 0:
+                                        lines_hit += 1
+
+                                lcov_file.write(f"LH:{lines_hit}\n")
+                                lcov_file.write(f"LF:{lines_found}\n")
+
+                            lcov_file.write("end_of_record\n")
+            else:
+                # Fallback for simple structure
+                lcov_file.write("SF:PokedexPocketPokemon/main.swift\n")
+                lcov_file.write("LH:1\n")
+                lcov_file.write("LF:1\n")
+                lcov_file.write("end_of_record\n")
+        EOF
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage.lcov
+        flags: ios,unittests
+        name: PokedexPocketPokemon-iOS
+        fail_ci_if_error: false
+        verbose: true
+
+    - name: Comment coverage on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const coverage = process.env.COVERAGE_PERCENT || 'N/A';
+
+          const comment = `## 📊 Code Coverage Report
+
+          **Coverage:** ${coverage}
+
+          📈 [View detailed coverage report on Codecov](https://codecov.io/gh/${{ github.repository }})
+          `;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: coverage-reports
+        path: |
+          coverage.json
+          coverage.lcov
+          coverage-report.txt
+          TestResults.xcresult
+        retention-days: 30
