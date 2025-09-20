@@ -88,6 +88,8 @@ public struct PokemonListView: View {
                     ForEach(0..<12, id: \.self) { _ in
                         PokemonLoadingCard()
                     }
+                } else if viewModel.pokemonList.isEmpty && !viewModel.searchText.isEmpty && !viewModel.isLoading {
+                    emptySearchState()
                 } else {
                     ForEach(viewModel.pokemonList) { pokemon in
                         PokemonCard(
@@ -113,6 +115,34 @@ public struct PokemonListView: View {
         .refreshable {
             viewModel.refreshData()
         }
+    }
+
+    private func emptySearchState() -> some View {
+        VStack(spacing: 16) {
+            Spacer()
+
+            VStack(spacing: 16) {
+                Image(systemName: "magnifyingglass.circle")
+                    .font(.system(size: 60))
+                    .foregroundColor(.secondary)
+
+                VStack(spacing: 8) {
+                    Text("Tidak Ada Hasil")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.primary)
+
+                    Text("Tidak ditemukan Pokémon yang sesuai dengan pencarian Anda. Coba kata kunci lain.")
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                }
+            }
+
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     private func errorContent(viewModel: PokemonListViewModel) -> some View {
